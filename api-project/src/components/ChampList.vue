@@ -4,7 +4,7 @@
       <ul class="champ-table" >
         <li class="champ-list"
         v-for="champ in champions"
-        :key="champ.id"
+        :key="champ.data"
         >{{champ.id}}
         </li>
         </ul>
@@ -31,7 +31,7 @@ export default {
               )
               const data = await response.json();
               console.log(data)
-              this.champions = data.response
+              this.champions = data.data
           } catch (error) {
               alert(error)
           }
@@ -51,7 +51,9 @@ export default {
     background-color: aqua;
     }
 li {
-    font-size: 10rem;
+    font-size: 2rem;
     color: black;
 }
 </style>
+
+
