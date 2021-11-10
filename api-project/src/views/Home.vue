@@ -1,15 +1,13 @@
 <template>
   <div class="home">
-    <ChampList></ChampList>
+    <h1>hi</h1>
   </div>
 </template>
 
 <script>
-import ChampList from "../components/ChampList.vue";
 export default {
   name: "Home",
   components: {
-    ChampList,
   },
-}
+};
 </script>

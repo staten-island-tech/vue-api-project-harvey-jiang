@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-      <h1>hi</h1>
       <ul class="champ-table" >
         <li class="champ-list"
         v-for="champ in champions"
@@ -45,8 +44,9 @@ export default {
 
 <style>
 .champ-table {
-    height: 75vh;
-    width: 75vw;
+
+    height: 100%;
+    width: 100%;
     font-size: 5rem;
     background-color: aqua;
     }
