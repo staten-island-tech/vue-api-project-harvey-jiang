@@ -44,13 +44,18 @@ export default {
 
 <style>
 .champ-table {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    max-width: 100vw;
 
-    height: 100%;
-    width: 100%;
-    font-size: 5rem;
-    background-color: aqua;
     }
-li {
+.champ-list {
+    list-style: none;
+    height: 25%;
+    width: 25%;
     font-size: 2rem;
     color: black;
 }
