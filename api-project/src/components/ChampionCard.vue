@@ -1,7 +1,9 @@
 <template>
   <div class="champ-container">
     <div class="query">
+      <router-link :to="championPath">
       <img class="img" :src="championImg"  alt="">
+      </router-link>
   </div>
   </div>
 </template>
@@ -24,6 +26,11 @@ export default {
     championImg: function() {
       return `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${this.champ.id}_0.jpg`;
     },
+    championPath: function() {
+    
+    return `/champion/${this.champ.id}`;
+
+    }
   },
 }
 </script>
