@@ -1,16 +1,21 @@
 <template>
   <div class="container">
       <ul class="champ-table" >
-        <li class="champ-list"
+        <li class="champ-list-item"
         v-for="champ in champions"
-        :key="champ.data"
-        >{{champ.id}}
+        :key="champ.id"
+        >
+        <ChampionCard :champ="champ"></ChampionCard>
+        <div class="name">
+        {{champ.id}}
+        </div>
         </li>
-        </ul>
+    </ul>
   </div>
 </template>
 
 <script>
+import ChampionCard from "@/components/ChampionCard.vue";
 export default {
   name: "ChampList",
   data() {
@@ -26,7 +31,7 @@ export default {
       fetchData: async function() {
           try {
               const response = await fetch (
-                  "http://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json?api_key=RGAPI-9643bc95-4d0b-4a16-a3e6-2b34889a128b"
+                  "http://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json?"
               )
               const data = await response.json();
               console.log(data)
@@ -35,29 +40,46 @@ export default {
               alert(error)
           }
       }
-  }
+  },
+  
+  components: {ChampionCard},
 };
 </script>
+
+
 
 <style>
 </style>
 
 <style>
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
 .champ-table {
     display: flex;
-    align-content: center;
     justify-content: center;
-    flex-wrap: wrap;
-    height: 100vh;
-    max-width: 100vw;
+    flex-wrap: wrap;    
+    height: 100%;
+    max-width: 80%;
 
     }
-.champ-list {
+.champ-list-item {
+    border: solid 1px;
+    padding: .5rem;
+    margin: .5rem;
     list-style: none;
-    height: 25%;
-    width: 25%;
+    height: 47%;
+    width: 17%;
     font-size: 2rem;
     color: black;
+}
+
+.name {
+    height: 15%;
+    width: 100%;
 }
 </style>
 
