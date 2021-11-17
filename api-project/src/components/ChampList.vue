@@ -6,9 +6,6 @@
         :key="champ.id"
         >
         <ChampionCard :champ="champ"></ChampionCard>
-        <div class="name">
-        {{champ.id}}
-        </div>
         </li>
     </ul>
   </div>
@@ -81,6 +78,8 @@ export default {
     height: 15%;
     width: 100%;
 }
+
+
 </style>
 
 
