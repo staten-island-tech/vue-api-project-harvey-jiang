@@ -3,10 +3,13 @@
     <div class="query">
       <img class="img" :src="championImg"  alt="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div class="name">
         {{champ.id}}
       </div>
       </router-link>
+=======
+>>>>>>> parent of f094a41 (awaaa)
 =======
 >>>>>>> parent of f094a41 (awaaa)
   </div>
