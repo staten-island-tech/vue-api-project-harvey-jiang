@@ -3,6 +3,9 @@
     <div class="query">
       <router-link :to="championPath">
       <img class="img" :src="championImg"  alt="">
+      <div class="name">
+        {{champ.id}}
+      </div>
       </router-link>
   </div>
   </div>
@@ -55,4 +58,6 @@ export default {
   height: 100%;
   width: 100%;
 }
+
+
 </style>
