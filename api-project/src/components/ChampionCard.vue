@@ -3,25 +3,11 @@
     <div class="query">
       <router-link :to="championPath" class="link">
       <img class="img" :src="championImg"  alt="">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c9125dd7b083eef4fd946e725c725bbc6204cadc
+
       <div class="name">
         {{champ.id}}
       </div>
       </router-link>
-<<<<<<< HEAD
-=======
->>>>>>> parent of f094a41 (awaaa)
-=======
->>>>>>> parent of f094a41 (awaaa)
-=======
->>>>>>> parent of f094a41 (awaaa)
-=======
->>>>>>> c9125dd7b083eef4fd946e725c725bbc6204cadc
   </div>
   </div>
 </template>
