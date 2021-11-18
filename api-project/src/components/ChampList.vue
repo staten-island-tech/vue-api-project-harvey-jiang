@@ -6,6 +6,11 @@
         :key="champ.id"
         >
         <ChampionCard :champ="champ"></ChampionCard>
+<<<<<<< HEAD
+=======
+        <div class="name">
+        </div>
+>>>>>>> c9125dd7b083eef4fd946e725c725bbc6204cadc
         </li>
     </ul>
   </div>
@@ -28,7 +33,7 @@ export default {
       fetchData: async function() {
           try {
               const response = await fetch (
-                  "http://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json?"
+                  "http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion.json?"
               )
               const data = await response.json();
               console.log(data)
@@ -60,7 +65,7 @@ export default {
     justify-content: center;
     flex-wrap: wrap;    
     height: 100%;
-    max-width: 80%;
+    max-width: 90%;
 
     }
 .champ-list-item {
@@ -68,8 +73,8 @@ export default {
     padding: .5rem;
     margin: .5rem;
     list-style: none;
-    height: 47%;
-    width: 17%;
+    height: 50%;
+
     font-size: 2rem;
     color: black;
 }
