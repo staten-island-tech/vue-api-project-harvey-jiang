@@ -7,7 +7,6 @@
         >
         <ChampionCard :champ="champ"></ChampionCard>
         <div class="name">
-        {{champ.id}}
         </div>
         </li>
     </ul>
@@ -63,7 +62,7 @@ export default {
     justify-content: center;
     flex-wrap: wrap;    
     height: 100%;
-    max-width: 80%;
+    max-width: 90%;
 
     }
 .champ-list-item {
@@ -71,8 +70,8 @@ export default {
     padding: .5rem;
     margin: .5rem;
     list-style: none;
-    height: 47%;
-    width: 17%;
+    height: 50%;
+
     font-size: 2rem;
     color: black;
 }

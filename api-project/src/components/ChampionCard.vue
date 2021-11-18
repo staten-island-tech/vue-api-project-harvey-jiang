@@ -1,24 +1,12 @@
 <template>
   <div class="champ-container">
     <div class="query">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <router-link>
+      <router-link :to="championPath" class="link">
       <img class="img" :src="championImg"  alt="">
       <div class="name">
         {{champ.id}}
       </div>
       </router-link>
-=======
-      <img class="img" :src="championImg"  alt="">
->>>>>>> parent of f094a41 (awaaa)
-=======
-      <img class="img" :src="championImg"  alt="">
->>>>>>> parent of f094a41 (awaaa)
-=======
-      <img class="img" :src="championImg"  alt="">
->>>>>>> parent of f094a41 (awaaa)
   </div>
   </div>
 </template>
@@ -41,11 +29,20 @@ export default {
     championImg: function() {
       return `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${this.champ.id}_0.jpg`;
     },
+        championPath: function() {
+    return `/champion/${this.champ.id}`;
+
+    }
   },
 }
 </script>
 
 <style>
+
+.link {
+  text-decoration: none;
+  color: #111;
+}
 .champ-container {
   display: flex;
   justify-content: center;
