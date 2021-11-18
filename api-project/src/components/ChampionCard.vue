@@ -1,12 +1,16 @@
 <template>
   <div class="champ-container">
     <div class="query">
+<<<<<<< HEAD
       <router-link>
       <img class="img" :src="championImg"  alt="">
       <div class="name">
         {{champ.id}}
       </div>
       </router-link>
+=======
+      <img class="img" :src="championImg"  alt="">
+>>>>>>> parent of f094a41 (awaaa)
   </div>
   </div>
 </template>
