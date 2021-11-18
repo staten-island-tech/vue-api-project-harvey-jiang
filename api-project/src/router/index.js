@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 const routes = [
 <<<<<<< HEAD
+<<<<<<< HEAD
  {
   path: "/",
   name: "Home",
@@ -16,6 +17,8 @@ const routes = [
   component: () => import("../views/AllLeaugeChamps.vue"),
  },
 =======
+=======
+>>>>>>> parent of f094a41 (awaaa)
   {
     path: "/",
     name: "Home",
@@ -26,6 +29,9 @@ const routes = [
     name: "AllLeaugeChamps",
     component: () => import("../views/AllLeaugeChamps.vue"),
   },
+<<<<<<< HEAD
+>>>>>>> parent of f094a41 (awaaa)
+=======
 >>>>>>> parent of f094a41 (awaaa)
 ];
 

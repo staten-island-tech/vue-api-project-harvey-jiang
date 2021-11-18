@@ -3,12 +3,16 @@
     <div class="query">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <router-link>
       <img class="img" :src="championImg"  alt="">
       <div class="name">
         {{champ.id}}
       </div>
       </router-link>
+=======
+      <img class="img" :src="championImg"  alt="">
+>>>>>>> parent of f094a41 (awaaa)
 =======
       <img class="img" :src="championImg"  alt="">
 >>>>>>> parent of f094a41 (awaaa)
