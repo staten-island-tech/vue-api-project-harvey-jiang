@@ -31,7 +31,7 @@ export default {
       fetchData: async function() {
           try {
               const response = await fetch (
-                  "http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion.json?"
+                  "http://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json?"
               )
               const data = await response.json();
               console.log(data)
