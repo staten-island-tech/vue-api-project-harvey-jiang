@@ -1,17 +1,20 @@
 <template>
   <div class="about-champ-container">
-      <div class="about-champ" 
+      <div class="about-champ" :style="{backgroundImage:championImg}" 
       v-for="champion in singleChampion"
       :key="champion.id">
-        <h1>
+      <div>   
+        <h1 class="title">
           {{champion.name}}
         </h1>
-          <p>
+        </div>
+        <div>
+         <p>
           {{champion.blurb}}
           </p>
+        </div>
       </div>
       <figure class="champion-img-container">
-          <img class="img" :src="championImg"  alt="">
       </figure>
   </div>
 </template>
@@ -54,7 +57,7 @@ export default {
     },
         computed: {
     championImg: function() {
-      return `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${this.imgOne}_0.jpg`;
+      return `url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${this.imgOne}_0.jpg)`;
     },
   }
     
@@ -68,16 +71,25 @@ export default {
 height: 100vh;
 width: 100vw;
 }
+
+.champion-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
 .about-champ {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     height: 100%;
     width: 50%;
     font-size: 1.5rem;
 }
 
-.champion-img-container {
-    height: 100%;
-    width: 50%;
-}
 
 .img {
     width: auto;
