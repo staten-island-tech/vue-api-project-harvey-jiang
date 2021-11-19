@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .about-champ-container {
     display: flex;
@@ -80,6 +80,7 @@ width: 100vw;
 }
 
 .img {
+    width: auto;
     height: 50%;
 }
 </style>
