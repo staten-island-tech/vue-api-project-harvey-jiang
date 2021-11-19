@@ -6,11 +6,8 @@
         :key="champ.id"
         >
         <ChampionCard :champ="champ"></ChampionCard>
-<<<<<<< HEAD
-=======
         <div class="name">
         </div>
->>>>>>> c9125dd7b083eef4fd946e725c725bbc6204cadc
         </li>
     </ul>
   </div>
@@ -54,6 +51,7 @@ export default {
 </style>
 
 <style>
+
 .container {
     display: flex;
     justify-content: center;
@@ -66,7 +64,6 @@ export default {
     flex-wrap: wrap;    
     height: 100%;
     max-width: 90%;
-
     }
 .champ-list-item {
     border: solid 1px;
@@ -74,11 +71,9 @@ export default {
     margin: .5rem;
     list-style: none;
     height: 50%;
-
     font-size: 2rem;
     color: black;
 }
-
 .name {
     height: 15%;
     width: 100%;
