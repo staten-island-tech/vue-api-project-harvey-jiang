@@ -1,21 +1,24 @@
 <template>
   <div class="about-champ-container">
-      <div class="about-champ" :style="{backgroundImage:championImg}" 
+      <div class="about-champ"
       v-for="champion in singleChampion"
       :key="champion.id">
-      <div>   
+      <figure class="champion-img-container">
+          <img :src="championImg" alt="" class="imgC">
+      </figure>
+      
+      <div class="champion-summary">   
         <h1 class="title">
           {{champion.name}}
         </h1>
-        </div>
-        <div>
+        <div class="summary">
+            <h1>Yep</h1>
          <p>
           {{champion.blurb}}
           </p>
         </div>
       </div>
-      <figure class="champion-img-container">
-      </figure>
+   </div>
   </div>
 </template>
 
@@ -57,42 +60,56 @@ export default {
     },
         computed: {
     championImg: function() {
-      return `url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${this.imgOne}_0.jpg)`;
+      return `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${this.imgOne}_0.jpg`;
     },
   }
     
 }
 </script>
 
-<style scoped>
+<style>
 
+.champion-summary {
+    height: 40%;
+    width: 100%;
+   color: white;
+}
+
+.summary {
+    display: flex;
+
+}
 .about-champ-container {
+    background-color: black;
+    flex-direction: column;
     display: flex;
 height: 100vh;
 width: 100vw;
 }
 
 .champion-img-container {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
     height: 100%;
 }
 
 .about-champ {
+ 
     flex-direction: column;
     display: flex;
     justify-content: center;
     align-content: center;
     height: 100%;
-    width: 50%;
+    width: 100%;
     font-size: 1.5rem;
 }
 
 
-.img {
-    width: auto;
-    height: 50%;
+.imgC {
+    width: 100%;
+    height: 70%;
 }
 </style>
