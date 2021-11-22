@@ -6,18 +6,30 @@
       <figure class="champion-img-container">
           <img :src="championImg" alt="" class="imgC">
       </figure>
+
+        <div class="title">
+            <h1>
+            {{champion.name}}
+            </h1>
+        </div>
       
       <div class="champion-summary">   
-        <h1 class="title">
-          {{champion.name}}
-        </h1>
-        <div class="summary">
+
+        <div>
+            <div>
             <h1>Yep</h1>
+        </div>
+        
+        <div class="summary">
          <p>
           {{champion.blurb}}
           </p>
         </div>
+
+        </div>
+
       </div>
+      
    </div>
   </div>
 </template>
@@ -70,7 +82,7 @@ export default {
 <style>
 
 .champion-summary {
-    height: 40%;
+    height: 30%;
     width: 100%;
    color: white;
 }
@@ -83,33 +95,34 @@ export default {
     background-color: black;
     flex-direction: column;
     display: flex;
-height: 100vh;
+height: 250vh;
 width: 100vw;
 }
 
+.about-champ {
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    color: white;
+}
+
 .champion-img-container {
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 32%;
 }
 
-.about-champ {
- 
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 100%;
-    width: 100%;
-    font-size: 1.5rem;
-}
+
 
 
 .imgC {
-    width: 100%;
-    height: 70%;
+    width: 90%;
+    height: 90%;
 }
 </style>

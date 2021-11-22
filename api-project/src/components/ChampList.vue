@@ -75,6 +75,9 @@ export default {
     color: black;
 }
 .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 15%;
     width: 100%;
 }
