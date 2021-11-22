@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/AllLeaugeChamps">Champions</router-link>
+      <router-link to="/" class="nav-link">Home</router-link> 
+      <router-link to="/AllLeaugeChamps" class="nav-link">Champions</router-link>
     </div>
     <router-view />
   </div>
@@ -19,26 +19,23 @@ body,
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+   height: 5vh;
+   width: 100vw;
 }
 
 #nav {
-  padding: 30px;
+  align-items: center;
+width: 100%;
+height: 100%;
+display: flex;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-  
 }
 
+.nav-link {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
 
+}
 </style>

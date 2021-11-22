@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>hi</h1>
+    <h1>WELCOME TO SOMMONORS RIFT XD
+    </h1>
   </div>
 </template>
 
@@ -11,3 +12,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.home {
+  display: flex;
+  justify-content: center;
+}
+</style>
