@@ -15,8 +15,7 @@
       
       <div class="champion-summary">   
 
-        <div>
-            <div>
+        <div class="champ-label">
             <h1>Yep</h1>
         </div>
         
@@ -25,16 +24,16 @@
           {{champion.blurb}}
           </p>
         </div>
-
-        </div>
-
+        
       </div>
+      <ChampionAblities :champion="champion"></ChampionAblities>
       
    </div>
   </div>
 </template>
 
 <script>
+import ChampionAblities from "@/components/ChampionAblities.vue";
 export default {
     data() {
     return {
@@ -43,9 +42,14 @@ export default {
     }
     
 },
+components: {ChampionAblities},
+
     created: function() {
         this.fetchData();
     },
+    props: [
+        "champion"
+    ],
     methods: {
         fetchData: async function() {
           try {
@@ -82,20 +86,25 @@ export default {
 <style>
 
 .champion-summary {
+    display: flex;
     height: 30%;
     width: 100%;
    color: white;
 }
 
+.champ-label {
+    width: 50%;
+    height: 75%;
+}
 .summary {
-    display: flex;
-
+    width: 50%;
+    height: 75%;
 }
 .about-champ-container {
     background-color: black;
     flex-direction: column;
     display: flex;
-height: 250vh;
+height: 120vh;
 width: 100vw;
 }
 
@@ -115,7 +124,7 @@ width: 100vw;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 32%;
+    height: 60%;
 }
 
 
