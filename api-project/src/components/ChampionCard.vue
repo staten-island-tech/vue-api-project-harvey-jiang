@@ -3,7 +3,6 @@
     <div class="query">
       <router-link :to="championPath" class="link">
       <img class="img" :src="championImg"  alt="">
-
       <div class="name">
         {{champ.id}}
       </div>

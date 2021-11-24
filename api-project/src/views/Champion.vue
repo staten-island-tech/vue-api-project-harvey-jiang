@@ -24,16 +24,17 @@
           {{champion.lore}}
           </p>
         </div>
-        <div
-      v-for="ability in champion.spells"
-      :key="ability.id">
-     </div>
         
-      </div>
+        <div
+        v-for="ability in champion.spells"
+        :key="ability.id">
+        
+        </div>
       <ChampionAblities :champion="champion" :ability="ability"></ChampionAblities>
       
    </div>
   </div>
+   </div>
 </template>
 
 <script>

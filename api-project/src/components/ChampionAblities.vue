@@ -1,9 +1,7 @@
 <template>
   <div class="ablities-container"><h1>{{champion.id}}</h1>
-  <div
-      v-for="abilityone in ability"
-      :key="abilityone.id">
-      <h1>{{abilityone.id}}</h1>
+  <div>
+      <h1>{{ability.id}}</h1>
    <img class="img" :src="ablityImg">
      </div>
   </div>
@@ -13,9 +11,10 @@
 export default {
 name: "ChampionAblities",
 
+
     props: [
-      "ability",
       "champion",
+      "ability",
     ],
      
      computed: {
