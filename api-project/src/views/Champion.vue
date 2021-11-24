@@ -21,12 +21,16 @@
         
         <div class="summary">
          <p>
-          {{champion.blurb}}
+          {{champion.lore}}
           </p>
         </div>
+        <div
+      v-for="ability in champion.spells"
+      :key="ability.id">
+     </div>
         
       </div>
-      <ChampionAblities :champion="champion"></ChampionAblities>
+      <ChampionAblities :champion="champion" :ability="ability"></ChampionAblities>
       
    </div>
   </div>
@@ -87,16 +91,24 @@ components: {ChampionAblities},
 
 .champion-summary {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 30%;
-    width: 100%;
+    width: 80%;
    color: white;
 }
 
 .champ-label {
+    display: flex;
+        justify-content: center;
+    align-items: center;
     width: 50%;
     height: 75%;
 }
 .summary {
+        display: flex;
+        justify-content: center;
+    align-items: center;
     width: 50%;
     height: 75%;
 }
@@ -109,6 +121,8 @@ width: 100vw;
 }
 
 .about-champ {
+        justify-content: center;
+    align-items: center;
     flex-direction: column;
     display: flex;
     height: 100%;
@@ -126,8 +140,6 @@ width: 100vw;
     width: 100%;
     height: 60%;
 }
-
-
 
 
 .imgC {
