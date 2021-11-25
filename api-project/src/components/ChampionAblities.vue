@@ -1,37 +1,173 @@
 <template>
-  <div class="ablities-container"><h1>{{champion.id}}</h1>
-  <div>
-      <h1>{{ability.id}}</h1>
-   <img class="img" :src="ablityImg">
-     </div>
+  <div class="about-champ-container">
+      <div class="about-champ"
+      v-for="champion in singleChampion"
+      :key="champion.id">
+      <figure class="champion-img-container">
+          <img :src="championImg" alt="" class="imgC">
+      </figure>
+
+        <div class="title">
+            <h1>
+            {{champion.name}}
+            </h1>
+        </div>
+      
+      <div class="champion-summary">   
+
+        <div class="champ-label">
+            <h1>Yep</h1>
+        </div>
+        
+        <div class="summary">
+         <p>
+          {{champion.lore}}
+          </p>
+        </div>
+
+      </div>
+  <div class="ablity-container">
+        <div class="ablity-container-inner"
+        v-for="ability in champion.spells"
+        :key="ability.id">
+          <AblitiyImg :champion="champion" :ability="ability"></AblitiyImg>
+          <figcaption>{{ability.name}}</figcaption>
+        </div>
+        
   </div>
+
+  </div>
+   </div>
 </template>
 
 <script>
+import AblitiyImg from "@/components/AblitiyImg.vue";
 export default {
-name: "ChampionAblities",
-
-
-    props: [
-      "champion",
-      "ability",
-    ],
-     
-     computed: {
-    ablityImg: function() {
-      return `http://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/${this.ability.image.sprite}`;
+  name: "ChampionAblities",
+    data() {
+    return {
+        singleChampion: [],
+        imgOne: [],
+    }
+    
+},
+    created: function() {
+        this.fetchData();
     },
-  },
+    props: [
+        "champion",
+         "ability",
+    ],
+      components: {AblitiyImg},
 
+    methods: {
+      
+        fetchData: async function() {
+          try {
+              let newData = [];
+              const response = await fetch (
+                  `http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/${this.$route.params.id}.json`
+              )
+              const data = await response.json();
+              this.singleChampion = data.data
+              this.champImg = Object.keys(data.data)
+              this.imgOne = newData
+
+              
+              this.champImg.forEach((value) => {
+                newData.push(value);
+                console.log(value);
+              });
+
+              
+      
+          } catch (error) {
+              alert(error)
+          }
+      },
+    },
+        computed: {
+    championImg: function() {
+      return `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${this.imgOne}_0.jpg`;
+    },
+  }
+    
 }
-
-
-
-
 </script>
 
 <style>
-.ablities-container {
+
+.ablity-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+  color: white;
+}
+
+.ablity-container-inner {
+    display: flex;
+  align-content: center;
+  justify-content: center;
+    height: 100%;
+  width: 25%;
+}
+.champion-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 80%;
+   color: white;
+}
+
+.champ-label {
+    display: flex;
+        justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 75%;
+}
+.summary {
+        display: flex;
+        justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 75%;
+}
+.about-champ-container {
+    background-color: black;
+    flex-direction: column;
+    display: flex;
+height: 150vh;
+width: 100vw;
+}
+
+.about-champ {
+        justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
     color: white;
+}
+
+.champion-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+}
+
+
+.imgC {
+    width: 90%;
+    height: 90%;
 }
 </style>
