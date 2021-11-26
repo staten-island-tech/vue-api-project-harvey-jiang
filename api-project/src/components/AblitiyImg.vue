@@ -1,6 +1,9 @@
 <template>
-  <figure>
+  <figure class="ablities-container">
+    <div class="ablities-container-inner">
     <img :src="championAbility" alt="">
+    <figcaption>{{ability.name}}</figcaption>
+    </div>
   </figure>
 </template>
 
@@ -24,5 +27,15 @@ export default {
 </script>
 
 <style>
-
+.ablities-container-inner {
+  flex-direction: column;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ablities-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

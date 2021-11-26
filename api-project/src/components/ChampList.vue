@@ -36,7 +36,7 @@ export default {
               console.log(data)
               this.champions = data.data
           } catch (error) {
-              alert(error)
+              alert("Sorry the api that we get our information from is currently down. Please try again later")
           }
       }
   },

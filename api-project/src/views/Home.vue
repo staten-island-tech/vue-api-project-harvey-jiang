@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>WELCOME TO SOMMONORS RIFT XD
+    <h1>WELCOME TO SOMMONORS RIFT
     </h1>
   </div>
 </template>

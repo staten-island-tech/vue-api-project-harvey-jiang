@@ -7,11 +7,12 @@
           <img :src="championImg" alt="" class="imgC">
       </figure>
 
-        <div class="title">
+        <transition
+        >
             <h1>
             {{champion.name}}
             </h1>
-        </div>
+        </transition>
       
       <div class="champion-summary">   
 
@@ -31,7 +32,7 @@
         v-for="ability in champion.spells"
         :key="ability.id">
           <AblitiyImg :champion="champion" :ability="ability"></AblitiyImg>
-          <figcaption>{{ability.name}}</figcaption>
+          
         </div>
         
   </div>
@@ -43,7 +44,7 @@
 <script>
 import AblitiyImg from "@/components/AblitiyImg.vue";
 export default {
-  name: "ChampionAblities",
+  name: "ChampionAbout",
     data() {
     return {
         singleChampion: [],
@@ -82,7 +83,7 @@ export default {
               
       
           } catch (error) {
-              alert(error)
+              alert("Sorry the api is currently not working and we are not getting the data. Please try again later")
           }
       },
     },
@@ -103,7 +104,6 @@ export default {
   justify-content: center;
   height: 20%;
   width: 100%;
-  color: white;
 }
 
 .ablity-container-inner {
@@ -119,7 +119,6 @@ export default {
     align-items: center;
     height: 30%;
     width: 80%;
-   color: white;
 }
 
 .champ-label {
@@ -145,6 +144,7 @@ width: 100vw;
 }
 
 .about-champ {
+  color: white;
         justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -153,9 +153,6 @@ width: 100vw;
     width: 100%;
 }
 
-.title {
-    color: white;
-}
 
 .champion-img-container {
     display: flex;

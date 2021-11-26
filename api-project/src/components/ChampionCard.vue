@@ -1,6 +1,6 @@
 <template>
   <div class="champ-container">
-    <div class="query">
+    <div class="champ-container-inner">
       <router-link :to="championPath" class="link">
       <img class="img" :src="championImg"  alt="">
       <div class="name">
@@ -51,7 +51,7 @@ export default {
   height: 85%;
   border: solid 1px;
 }
-.query {
+.champ-container-inner {
   height: 100%;
   width: 100%;
   color: #111;

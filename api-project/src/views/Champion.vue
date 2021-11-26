@@ -1,13 +1,18 @@
 <template>
-  <ChampionAblities></ChampionAblities>
+<div>
+  <ChampionAbout></ChampionAbout>
+  <ChampionSkins></ChampionSkins>
+</div>
 </template>
 
 <script>
-import ChampionAblities from "@/components/ChampionAblities.vue";
+import ChampionSkins from "@/components/ChampionSkins.vue"
+import ChampionAbout from "@/components/ChampionAbout.vue";
 export default {
 name: "Champion",
 components: {
-    ChampionAblities
+    ChampionAbout,
+    ChampionSkins
     },
 }
 
