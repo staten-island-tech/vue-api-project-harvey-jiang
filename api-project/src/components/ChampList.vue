@@ -1,7 +1,5 @@
 <template>
-
   <div class="container">
-          <input  type="text" v-model="search" placeholder="search blogs" class="search-bar-cont"/>
       <ul class="champ-table" >
         <li class="champ-list-item"
         v-for="champ in champions"
@@ -21,7 +19,6 @@ export default {
   name: "ChampList",
   data() {
       return {
-            search: '',
           champions: []
       }
   },
