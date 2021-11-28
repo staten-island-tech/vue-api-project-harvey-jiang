@@ -1,13 +1,17 @@
 <template>
-<div>
-    <transition-group name='fade' tag='div'>
-      <div v-for="i in [currentIndex]" :key='i'>
-        <img :src="currentImg" />
-      </div>
-    </transition-group>
-    <a class="prev" @click="prev" href='#'>&#10094;</a>
-  <a class="next" @click="next" href='#'>&#10095;</a>
+<div id="slider">
+  <transition-group tag="div" :name="transitionName" class="slides-group">
+    <div v-if="show" :key="current" class="slide" :class="slides[current].className">
+      <p>I'm {{slides[current].className}}!</p>
+    </div>
+  </transition-group>
+  <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
+    &#10094;
   </div>
+  <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
+    &#10095;
+  </div>
+</div>
 </template>
 
 <script>
@@ -15,87 +19,133 @@ export default {
   name: 'ChampionSkins',
   data() {
     return {
-      images: [
-        'https://cdn.pixabay.com/photo/2015/12/12/15/24/amsterdam-1089646_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/02/17/23/03/usa-1206240_1280.jpg',
-        'https://cdn.pixabay.com/photo/2015/05/15/14/27/eiffel-tower-768501_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/12/04/19/30/berlin-cathedral-1882397_1280.jpg'
-        ],
-      timer: null,
-      currentIndex: 0,
+ current: 0,
+    direction: 1,
+    transitionName: "fade",
+    show: false,
+    slides: [
+      { className: "blue" },
+      { className: "red" },
+      { className: "yellow" }
+    ]
     }
   },
   
-    mounted: function() {
-      this.startSlide();
-    },
-  
-    methods: {
-      startSlide: function() {
-        this.timer = setInterval(this.next, 4000);
-      },
-  
-  
-      next: function() {
-        this.currentIndex += 1
-      },
-      prev: function() {
-        this.currentIndex -= 1
-      }
-    },
-  
-    computed: {
-      currentImg: function() {
-        return this.images[Math.abs(this.currentIndex) % this.images.length];
-      }
+ methods: {
+    slide(dir) {
+      this.direction = dir;
+      dir === 1
+        ? (this.transitionName = "slide-next")
+        : (this.transitionName = "slide-prev");
+      var len = this.slides.length;
+      this.current = (this.current + dir % len + len) % len;
     }
+  },
+  mounted() {
+    this.show = true;
+  }
   
 }
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.9s ease;
-  overflow: hidden;
-  visibility: visible;
-  position: absolute;
-  width:100%;
-  opacity: 1;
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text");
+
+/* FADE IN */
+.fade-enter-active {
+  transition: opacity 1s;
 }
-.fade-enter,
-.fade-leave-to {
-  visibility: hidden;
-  width:100%;
+.fade-enter {
   opacity: 0;
 }
-img {
-height:600px;
-width:100%
-  }
-.prev, .next {
-  cursor: pointer;
+
+/* GO TO NEXT SLIDE */
+.slide-next-enter-active,
+.slide-next-leave-active {
+  transition: transform 0.5s ease-in-out;
+}
+.slide-next-enter {
+  transform: translate(100%);
+}
+.slide-next-leave-to {
+  transform: translate(-100%);
+}
+
+/* GO TO PREVIOUS SLIDE */
+.slide-prev-enter-active,
+.slide-prev-leave-active {
+  transition: transform 0.5s ease-in-out;
+}
+.slide-prev-enter {
+  transform: translate(-100%);
+}
+.slide-prev-leave-to {
+  transform: translate(100%);
+}
+
+/* SLIDES CLASSES */
+
+.blue {
+  background: #4a69bd;
+}
+
+.red {
+  background: #e55039;
+}
+
+.yellow {
+  background: #f6b93b;
+}
+
+/* SLIDER STYLES */
+body {
+  overflow: hidden;
+  margin: 0;
+  font-size: 50px;
+  font-family: "Crimson Text", sans-serif;
+  color: #fff;
+}
+
+#slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
   position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.7s ease;
-  border-radius: 0 4px 4px 0;
-  text-decoration: none;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  z-index: 10;
+  cursor: pointer;
+  border: 3px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: calc(50% - 35px);
+  left: 1%;
+  transition: transform 0.3s ease-in-out;
   user-select: none;
 }
-/* Position the "next button" to the right */
-.next {
-  right: 0;
+
+.btn-next {
+  left: auto;
+  right: 1%;
 }
-.prev {
-  left: 0;
+
+.btn:hover {
+  transform: scale(1.1);
 }
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.9);
-}
+
 </style>
