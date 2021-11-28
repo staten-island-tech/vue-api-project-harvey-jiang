@@ -117,8 +117,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30%;
-    width: 80%;
+    max-height: 30%;
+    max-width: 80%;
 }
 
 .champ-label {
@@ -134,6 +134,7 @@ export default {
     align-items: center;
     width: 50%;
     height: 75%;
+  
 }
 .about-champ-container {
     background-color: black;
