@@ -33,20 +33,52 @@
         :key="ability.id">
           <AblitiyImg :champion="champion" :ability="ability"></AblitiyImg>
           
-        </div>
+      </div>
+  </div>
+
+  <div class="slide-cont">
+    <div class="slide-cont-inner">
+
+<hooper :vertical="true" style="  height: 85%; 
+  width:25%;
+  display: flex;
+  justify-content: center;
+  align-content: center;" :itemsToShow="2" :centerMode="true">
+   <slide v-for="(skin, indx) in champion.skins" :key="skin.num" :index="indx" class="center">
+      <ChampionSkins :champion="champion" :skin="skin"></ChampionSkins>
+  </slide>
+  <hooper-navigation slot="hooper-addons"></hooper-navigation>
+</hooper>
+
+  </div>
+</div>
+
+
+  </div>
         
   </div>
 
-  </div>
-   </div>
 </template>
 
 <script>
 import AblitiyImg from "@/components/AblitiyImg.vue";
+import ChampionSkins from "@/components/ChampionSkins.vue";
+import { Hooper, Slide , Navigation as HooperNavigation} from 'hooper';
+import 'hooper/dist/hooper.css';
+
 export default {
   name: "ChampionAbout",
     data() {
     return {
+          current: 0,
+    direction: 1,
+    transitionName: "fade",
+    show: false,
+    slides: [
+      { className: "blue" },
+      { className: "red" },
+      { className: "yellow" }
+    ],
         singleChampion: [],
         imgOne: [],
     }
@@ -59,9 +91,22 @@ export default {
         "champion",
          "ability",
     ],
-      components: {AblitiyImg},
+      components: {AblitiyImg, ChampionSkins, Hooper,
+    Slide,  HooperNavigation},
+
+  mounted() {
+    this.show = true;
+  },
 
     methods: {
+      slide(dir) {
+      this.direction = dir;
+      dir === 1
+        ? (this.transitionName = "slide-next")
+        : (this.transitionName = "slide-prev");
+      var len = this.slides.length;
+      this.current = (this.current + dir % len + len) % len;
+    },
       
         fetchData: async function() {
           try {
@@ -70,6 +115,7 @@ export default {
                   `http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/${this.$route.params.id}.json`
               )
               const data = await response.json();
+              console.log(data.data)
               this.singleChampion = data.data
               this.champImg = Object.keys(data.data)
               this.imgOne = newData
@@ -97,6 +143,28 @@ export default {
 </script>
 
 <style>
+
+.center {
+
+}
+
+.slide-cont {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.slide-cont-inner {
+  display: flex;
+   justify-content: center;
+  align-content: center;
+  width: 75%;
+  height: 85%;
+}
 
 .ablity-container {
   display: flex;
@@ -140,7 +208,7 @@ export default {
     background-color: black;
     flex-direction: column;
     display: flex;
-height: 150vh;
+height: 200vh;
 width: 100vw;
 }
 
