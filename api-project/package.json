@@ -1,4 +1,7 @@
 {
+  "vue-burger-menu": "^2.0.5",
+  "vue2-animate": "^2.1.4",
+
   "name": "api-project",
   "version": "0.1.0",
   "private": true,
