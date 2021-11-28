@@ -4,21 +4,18 @@
       v-for="champion in singleChampion"
       :key="champion.id">
       <figure class="champion-img-container">
-          <img :src="championImg" alt="" class="imgC">
+          <img :src="championImg" alt="" class="imgC" id="imgC">
       </figure>
 
-        <transition
-        >
+    <div class="champ-title">
             <h1>
             {{champion.name}}
             </h1>
-        </transition>
+            <h2>{{champion.title}}</h2>
+</div>
       
       <div class="champion-summary">   
 
-        <div class="champ-label">
-            <h1>Yep</h1>
-        </div>
         
         <div class="summary">
          <p>
@@ -28,27 +25,41 @@
 
       </div>
   <div class="ablity-container">
+          <div class="ablity-container-inner" id="broken-flex">
+              <PassiveImg :champion="champion"></PassiveImg>
+          </div>
         <div class="ablity-container-inner"
         v-for="ability in champion.spells"
         :key="ability.id">
           <AblitiyImg :champion="champion" :ability="ability"></AblitiyImg>
-          
       </div>
   </div>
 
   <div class="slide-cont">
     <div class="slide-cont-inner">
 
-<hooper :vertical="true" style="  height: 85%; 
-  width:25%;
-  display: flex;
+<hooper :vertical="true" style="  height: 50%; 
+  width: 20%;
+  display: flex;   border: black solid;
   justify-content: center;
-  align-content: center;" :itemsToShow="2" :centerMode="true">
+  align-content: center;" :itemsToShow="3" :centerMode="true">
    <slide v-for="(skin, indx) in champion.skins" :key="skin.num" :index="indx" class="center">
       <ChampionSkins :champion="champion" :skin="skin"></ChampionSkins>
   </slide>
-  <hooper-navigation slot="hooper-addons"></hooper-navigation>
+    <hooper-navigation slot="hooper-addons"></hooper-navigation>
 </hooper>
+
+  <hooper style="  height: 90%; 
+  width: 80%;  display: flex; border: black solid;
+  justify-content: center; font-size: 2rem;
+  align-items: center;" :itemsToShow="1.2" :centerMode="true">
+   <slide v-for="(skin, indx) in champion.skins" :key="skin.num" :index="indx" class="center">
+      <ChampionSkins :champion="champion" :skin="skin"></ChampionSkins>
+  </slide>
+     <hooper-navigation slot="hooper-addons"></hooper-navigation>
+    <hooper-pagination slot="hooper-addons"></hooper-pagination>
+</hooper>
+  
 
   </div>
 </div>
@@ -62,23 +73,15 @@
 
 <script>
 import AblitiyImg from "@/components/AblitiyImg.vue";
+import PassiveImg from "@/components/PassiveImg.vue";
 import ChampionSkins from "@/components/ChampionSkins.vue";
-import { Hooper, Slide , Navigation as HooperNavigation} from 'hooper';
+import { Hooper, Slide , Navigation as HooperNavigation,  Pagination as HooperPagination,} from 'hooper';
 import 'hooper/dist/hooper.css';
 
 export default {
   name: "ChampionAbout",
     data() {
     return {
-          current: 0,
-    direction: 1,
-    transitionName: "fade",
-    show: false,
-    slides: [
-      { className: "blue" },
-      { className: "red" },
-      { className: "yellow" }
-    ],
         singleChampion: [],
         imgOne: [],
     }
@@ -90,24 +93,17 @@ export default {
     props: [
         "champion",
          "ability",
+         "skin"
     ],
       components: {AblitiyImg, ChampionSkins, Hooper,
-    Slide,  HooperNavigation},
+    Slide,  HooperNavigation,  HooperPagination, PassiveImg},
 
-  mounted() {
-    this.show = true;
-  },
 
-    methods: {
-      slide(dir) {
-      this.direction = dir;
-      dir === 1
-        ? (this.transitionName = "slide-next")
-        : (this.transitionName = "slide-prev");
-      var len = this.slides.length;
-      this.current = (this.current + dir % len + len) % len;
+    methods: {      
+
+       onClickChild (value) {
+      console.log(value) // someValue
     },
-      
         fetchData: async function() {
           try {
               let newData = [];
@@ -144,8 +140,54 @@ export default {
 
 <style>
 
-.center {
+ @media (max-width: 840px) {  
+   *{
+     font-size: 90%;
+   }
 
+   #skin-img {
+     height: auto;
+   }
+
+
+    #imgC {
+      width: 80%;
+    }
+
+    .skin-name {
+      font-size: 100%;
+    }
+
+  
+ }
+
+.ablities-container-inner {
+  flex-direction: column;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ablities-container {
+  display: flex;
+  text-align: center;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.champ-title {
+  text-align: center;
+  display: flex;
+flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  font-size: 4rem;
+}
+
+
+.slected-img {
+  color: black;
 }
 
 .slide-cont {
@@ -160,18 +202,20 @@ export default {
 
 .slide-cont-inner {
   display: flex;
-   justify-content: center;
-  align-content: center;
+   justify-content: flex-start;
+  align-items: center;
   width: 75%;
   height: 85%;
 }
 
 .ablity-container {
+  margin-top: 1rem;
   display: flex;
   align-content: center;
   justify-content: center;
-  height: 20%;
-  width: 100%;
+  height: 70%;
+  font-size: 2rem;
+  width: 90%;
 }
 
 .ablity-container-inner {
@@ -179,9 +223,10 @@ export default {
   align-content: center;
   justify-content: center;
     height: 100%;
-  width: 25%;
+  width: 20%;
 }
 .champion-summary {
+  font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,18 +234,11 @@ export default {
     max-width: 80%;
 }
 
-.champ-label {
-    display: flex;
-        justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 75%;
-}
 .summary {
         display: flex;
         justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 80%;
     height: 75%;
   
 }
@@ -208,7 +246,7 @@ export default {
     background-color: black;
     flex-direction: column;
     display: flex;
-height: 200vh;
+height: 270vh;
 width: 100vw;
 }
 
@@ -233,7 +271,7 @@ width: 100vw;
 
 
 .imgC {
-    width: 90%;
+    width: auto;
     height: 90%;
 }
 </style>

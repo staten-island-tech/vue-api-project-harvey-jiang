@@ -1,5 +1,7 @@
 <template>
+
   <div class="container">
+          <input  type="text" v-model="search" placeholder="search blogs" class="search-bar-cont"/>
       <ul class="champ-table" >
         <li class="champ-list-item"
         v-for="champ in champions"
@@ -19,6 +21,7 @@ export default {
   name: "ChampList",
   data() {
       return {
+            search: '',
           champions: []
       }
   },
@@ -52,9 +55,28 @@ export default {
 
 <style>
 
+.search-bar-cont {
+    width: 100%;
+   height: 50%;
+
+}
+
+.name {
+    font-size: 3rem;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+}
+
+
 .container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
 }
@@ -67,19 +89,12 @@ export default {
     }
 .champ-list-item {
     border: solid 1px;
-    padding: .5rem;
+    padding: .3rem;
     margin: .5rem;
     list-style: none;
     height: 50%;
     font-size: 2rem;
     color: black;
-}
-.name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15%;
-    width: 100%;
 }
 
 

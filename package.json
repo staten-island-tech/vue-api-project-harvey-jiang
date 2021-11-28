@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "hooper": "^0.3.4"
+    "hooper": "^0.3.4",
+    "vue-aos": "^2.3.0"
   }
 }

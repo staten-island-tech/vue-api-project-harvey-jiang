@@ -1,9 +1,12 @@
 <template>
+<nav class="nav-bar-cont">
   <Nav></Nav>
+           <router-view />
+</nav>
 </template>
 
 <script>
-import Nav from "@/components/Nav.vue";
+import Nav from './components/Nav.vue';
 export default {
   name: "App", 
       components: {
@@ -16,16 +19,10 @@ export default {
 html,
 body,
 * {
-  
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-   .bm-burger-bars {
-      background-color: aquamarine;
-    }
-.nav-link {
-  color: white;
-}
+
 </style>

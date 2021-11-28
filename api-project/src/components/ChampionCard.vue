@@ -1,5 +1,5 @@
 <template>
-  <div class="champ-container">
+  <div class="champ-container" tabindex='0'>
     <div class="champ-container-inner">
       <router-link :to="championPath" class="link">
       <img class="img" :src="championImg"  alt="">

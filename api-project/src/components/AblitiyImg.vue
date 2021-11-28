@@ -3,6 +3,7 @@
     <div class="ablities-container-inner">
     <img :src="championAbility" alt="">
     <figcaption>{{ability.name}}</figcaption>
+      <figcaption>{{ability.description}}</figcaption>
     </div>
   </figure>
 </template>
@@ -21,21 +22,10 @@ export default {
       return `http://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/${this.ability.image.full}`;
     },
 
-
   }
 }
 </script>
 
 <style>
-.ablities-container-inner {
-  flex-direction: column;
-    display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ablities-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 </style>
