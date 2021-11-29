@@ -1,9 +1,9 @@
 <template>
   <figure class="ablities-container">
     <div class="ablities-container-inner">
-    <img :src="championAbility" alt="">
-    <figcaption>{{ability.name}}</figcaption>
-      <figcaption>{{ability.description}}</figcaption>
+    <img :src="championAbility" alt="" tabindex="0">
+    <figcaption tabindex="0">{{ability.name}}</figcaption>
+      <figcaption tabindex="0">{{ability.description}}</figcaption>
     </div>
   </figure>
 </template>

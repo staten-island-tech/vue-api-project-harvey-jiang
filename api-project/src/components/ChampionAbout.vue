@@ -4,38 +4,40 @@
       v-for="champion in singleChampion"
       :key="champion.id">
       <figure class="champion-img-container">
-          <img :src="championImg" alt="" class="imgC" id="imgC">
+          <img :src="championImg" alt="" class="imgC" id="imgC" tabindex="0">
       </figure>
 
     <div class="champ-title">
-            <h1>
+            <h1 tabindex="0">
             {{champion.name}}
             </h1>
-            <h2>{{champion.title}}</h2>
+            <h2 tabindex="0">
+              {{champion.title}}
+            </h2>
 </div>
       
       <div class="champion-summary">   
         
         <div class="summary">
-         <p>
+         <p tabindex="0">
           {{champion.lore}}
           </p>
         </div>
 
       </div>
   <div class="ablity-container">
-          <div class="ablity-container-inner" id="bad-flx">
+          <div class="ablity-container-inner" tabindex="0">
               <PassiveImg :champion="champion"></PassiveImg>
           </div>
         <div class="ablity-container-inner"
         v-for="ability in champion.spells"
-        :key="ability.id">
+        :key="ability.id" tabindex="0">
           <AblitiyImg :champion="champion" :ability="ability"></AblitiyImg>
       </div>
   </div>
 
   <div class="slide-cont">
-    <div class="slide-cont-inner" id="hopper2">
+    <div class="slide-cont-inner" tabindex="0">
 
 <hooper :vertical="true" style="  height: 50%; 
   width: 20%;

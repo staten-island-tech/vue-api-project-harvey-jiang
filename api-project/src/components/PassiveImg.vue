@@ -2,9 +2,9 @@
 
   <figure class="ablities-container">
     <div class="ablities-container-inner">
-    <img :src="passiveAbility" alt="">
-    <figcaption>{{champion.passive.name}}</figcaption>
-    <figcaption>{{champion.passive.description}}</figcaption>
+    <img :src="passiveAbility" alt="" tabindex="0">
+    <figcaption tabindex="0">{{champion.passive.name}}</figcaption>
+    <figcaption tabindex="0">{{champion.passive.description}}</figcaption>
     </div>
   </figure>
   
