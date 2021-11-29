@@ -35,7 +35,7 @@
   </div>
 
   <div class="slide-cont">
-    <div class="slide-cont-inner">
+    <div class="slide-cont-inner" id="hopper2">
 
 <hooper :vertical="true" style="  height: 50%; 
   width: 20%;
@@ -134,25 +134,17 @@ export default {
 
 <style>
 
+@media (max-width: 880px) {  
+   *{
+     font-size: 95%;
+   }
+}
+
  @media (max-width: 840px) {  
    *{
-     font-size: 90%;
+     
+     font-size: 80%;
    }
-
-   #skin-img {
-     height: auto;
-   }
-
-
-    #imgC {
-      width: 80%;
-    }
-
-    .skin-name {
-      font-size: 100%;
-    }
-
-  
  }
 
 
@@ -181,13 +173,10 @@ flex-direction: column;
   align-items: center;
   width: 100%;
   height: 10%;
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 
 
-.slected-img {
-  color: #111;
-}
 
 .slide-cont {
   flex-direction: column;
@@ -207,13 +196,15 @@ flex-direction: column;
   height: 85%;
 }
 
+
+
 .ablity-container {
-  margin-top: 2.5rem;
+  margin-top: .5rem;
   display: flex;
   align-content: center;
   justify-content: center;
   height: 70%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 90%;
 }
 
@@ -242,7 +233,7 @@ flex-direction: column;
   
 }
 .about-champ-container {
-    background-color: black;
+    background-color: #000;
     flex-direction: column;
     display: flex;
 height: 270vh;
@@ -265,12 +256,12 @@ width: 100vw;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 60%;
+    height: 40%;
 }
 
 
 .imgC {
-    width: auto;
-    height: 90%;
+    width: 60%;
+    height: 70%;
 }
 </style>
