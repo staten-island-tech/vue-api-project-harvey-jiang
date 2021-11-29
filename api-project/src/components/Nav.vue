@@ -1,6 +1,4 @@
 <template>
-
-
     <div class="nav-bar">
       <router-link to="/AllLeaugeChamps" class="nav-link">Champions</router-link>
   </div>

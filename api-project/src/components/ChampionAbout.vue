@@ -15,7 +15,6 @@
 </div>
       
       <div class="champion-summary">   
-
         
         <div class="summary">
          <p>
@@ -25,7 +24,7 @@
 
       </div>
   <div class="ablity-container">
-          <div class="ablity-container-inner" id="broken-flex">
+          <div class="ablity-container-inner" id="bad-flx">
               <PassiveImg :champion="champion"></PassiveImg>
           </div>
         <div class="ablity-container-inner"
@@ -91,9 +90,7 @@ export default {
         this.fetchData();
     },
     props: [
-        "champion",
-         "ability",
-         "skin"
+
     ],
       components: {AblitiyImg, ChampionSkins, Hooper,
     Slide,  HooperNavigation,  HooperPagination, PassiveImg},
@@ -111,7 +108,7 @@ export default {
                   `http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/${this.$route.params.id}.json`
               )
               const data = await response.json();
-              console.log(data.data)
+              console.log( Object.keys(data.data))
               this.singleChampion = data.data
               this.champImg = Object.keys(data.data)
               this.imgOne = newData
@@ -159,6 +156,11 @@ export default {
     }
 
   
+ }
+
+
+ #bad-flx {
+   font-size: .7rem;
  }
 
 .ablities-container-inner {

@@ -1,9 +1,10 @@
 <template>
   <div class="container">
+      <h1>{{searchVal}}</h1>
       <ul class="champ-table" >
         <li class="champ-list-item"
         v-for="champ in champions"
-        :key="champ.id"
+        :key="champ.id" data-aos="fade-down" data-aos-easing="ease-in"
         >
         <ChampionCard :champ="champ"></ChampionCard>
         <div class="name">
@@ -19,13 +20,14 @@ export default {
   name: "ChampList",
   data() {
       return {
-          champions: []
+          champions: [],
       }
   },
   created: function() {
       this.fetchData();
   },
-  props: [],
+  props: [
+  ],
   methods: {
       fetchData: async function() {
           try {
