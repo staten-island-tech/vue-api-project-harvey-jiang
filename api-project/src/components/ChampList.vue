@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-      <h1>{{searchVal}}</h1>
-      <ul class="champ-table" >
+      <ul class="champ-table">
         <li class="champ-list-item"
         v-for="champ in champions"
         :key="champ.id" data-aos="fade-down" data-aos-easing="ease-in"
@@ -62,7 +61,7 @@ export default {
 
 .name {
     font-size: 3rem;
-    background-color: blanchedalmond;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +92,11 @@ export default {
     list-style: none;
     height: 50%;
     font-size: 2rem;
-    color: black;
+    color: #000000;
+}
+
+.champ-list-item:hover {
+        background-color: #ffebcd;
 }
 
 

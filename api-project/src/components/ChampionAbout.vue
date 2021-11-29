@@ -98,9 +98,6 @@ export default {
 
     methods: {      
 
-       onClickChild (value) {
-      console.log(value) // someValue
-    },
         fetchData: async function() {
           try {
               let newData = [];
@@ -189,7 +186,7 @@ flex-direction: column;
 
 
 .slected-img {
-  color: black;
+  color: #111;
 }
 
 .slide-cont {
@@ -197,7 +194,7 @@ flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #FFFFFF;
   height: 100%;
   width: 100%;
 }
@@ -211,7 +208,7 @@ flex-direction: column;
 }
 
 .ablity-container {
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -253,7 +250,7 @@ width: 100vw;
 }
 
 .about-champ {
-  color: white;
+  color: #FFFFFF;
         justify-content: center;
     align-items: center;
     flex-direction: column;

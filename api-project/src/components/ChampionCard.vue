@@ -22,9 +22,6 @@ export default {
       singleChampion: {},
     };
   },
-    methods: {
-
-    },
      computed: {
     championImg: function() {
       return `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${this.champ.id}_0.jpg`;

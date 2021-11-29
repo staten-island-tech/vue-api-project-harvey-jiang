@@ -25,7 +25,11 @@ export default {
   display: flex;
   width: 50%;
   text-decoration: none;
-  color: brown;
+  color: 000000;
+}
+
+.nav-link:hover {
+  font-size: 3rem;
 }
 
 
